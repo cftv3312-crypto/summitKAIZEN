@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>KAIZEN™ Institute México · Summit Hospitalidad 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#162240;
+  --navy2:#1E2F54;
+  --red:#D63429;
+  --red-lt:#FCEAE9;
+  --red-dk:#8C1A14;
+  --cream:#F0EBE1;
+  --warm:#E5DDCF;
+  --white:#FFFFFF;
+  --muted:#8A8070;
+  --border:#D0C8BC;
+  --green:#2E7D32;
+  --green-lt:#E8F5E9;
+  --green-dk:#1B4D1E;
+  --amber:#B45309;
+  --amber-lt:#FEF3C7;
+  --amber-dk:#78350F;
+  --blue:#1E40AF;
+  --blue-lt:#DBEAFE;
+  --blue-dk:#1E3A8A;
+  --header-h:58px;
+  --nav-h:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--navy);font-size:15px;line-height:1.5}
+
+/* ── HEADER ─────────────────────────────────────── */
+.hdr{
+  position:fixed;top:0;left:0;right:0;height:var(--header-h);
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 22px;z-index:200;
+  border-bottom:2px solid var(--red);
+}
+.hdr-brand{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;
+  color:#fff;letter-spacing:1.5px;text-transform:uppercase;
+}
+.hdr-brand em{color:var(--red);font-style:normal}
+.hdr-badge{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);
+  border:1px solid #2a3d6a;padding:5px 11px;border-radius:2px;
+}
+
+/* ── SCROLL CONTAINER ────────────────────────────── */
+.viewport{
+  position:fixed;top:var(--header-h);left:0;right:0;
+  bottom:var(--nav-h);
+  overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+}
+
+/* ── SCREENS ─────────────────────────────────────── */
+.screen{
+  display:none;min-height:100%;
+  padding:28px 20px 32px;
+  animation:fadeIn .25s ease;
+}
+.screen.active{display:block}
+.screen.is-dark{
+  background:var(--navy);min-height:100%;display:none;
+  flex-direction:column;align-items:center;justify-content:center;
+  padding:0;
+}
+.screen.is-dark.active{display:flex}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ── BOTTOM NAV ──────────────────────────────────── */
+.bnav{
+  position:fixed;bottom:0;left:0;right:0;height:var(--nav-h);
+  background:var(--navy);display:flex;
+  border-top:1px solid #2a3d6a;z-index:200;
+}
+.bnav-btn{
+  flex:1;background:none;border:none;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;padding:8px 4px;
+  transition:background .18s;position:relative;
+}
+.bnav-btn::after{
+  content:'';position:absolute;top:0;left:20%;right:20%;height:2px;
+  background:var(--red);transform:scaleX(0);transform-origin:center;
+  transition:transform .2s ease;
+}
+.bnav-btn.active::after{transform:scaleX(1)}
+.bnav-btn:hover{background:rgba(255,255,255,.04)}
+.bnav-btn.active{background:rgba(214,52,41,.07)}
+.bnav-ico{font-size:19px;line-height:1}
+.bnav-lbl{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);
+}
+.bnav-btn.active .bnav-lbl{color:var(--red)}
+
+/* ── TYPOGRAPHY HELPERS ─────────────────────────── */
+.tag{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:6px;
+}
+.h1{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;
+  text-transform:uppercase;color:var(--navy);letter-spacing:.5px;
+  line-height:1.05;margin-bottom:6px;
+}
+.sub{font-size:13px;color:var(--muted);margin-bottom:20px;font-weight:400;line-height:1.5}
+.rule{width:36px;height:3px;background:var(--red);margin-bottom:22px;border-radius:1px}
+
+/* ── HERO ───────────────────────────────────────── */
+.hero{max-width:480px;text-align:center;padding:44px 28px}
+.hero-tag{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:3.5px;text-transform:uppercase;color:var(--red);margin-bottom:20px;
+}
+.hero-h{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:44px;
+  line-height:1.02;text-transform:uppercase;color:#fff;letter-spacing:.3px;
+  margin-bottom:18px;
+}
+.hero-h em{color:var(--red);font-style:normal}
+.hero-body{
+  font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.65;
+  margin-bottom:34px;max-width:340px;margin-left:auto;margin-right:auto;
+}
+.hero-grid{display:flex;flex-direction:column;gap:10px;width:100%}
+.btn-primary{
+  background:var(--red);color:#fff;border:none;padding:16px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;
+  letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;
+  transition:background .18s;border-radius:2px;width:100%;
+}
+.btn-primary:hover{background:var(--red-dk)}
+.btn-ghost{
+  background:none;color:rgba(255,255,255,.4);
+  border:1px solid #2a3d6a;padding:12px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%;
+  border-radius:2px;transition:all .18s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.7)}
+
+/* kaizen explainer card */
+.kaizen-card{
+  background:rgba(255,255,255,.04);border:1px solid #2a3d6a;
+  border-radius:4px;padding:18px;margin-bottom:28px;text-align:left;
+}
+.kaizen-top{display:flex;align-items:center;gap:16px}
+.kaizen-kanji{
+  font-size:44px;font-weight:700;color:var(--red);line-height:.9;flex-shrink:0;
+}
+.kaizen-word{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;
+  text-transform:uppercase;letter-spacing:1px;color:#fff;margin-bottom:5px;
+}
+.kaizen-word em{color:var(--red);font-style:normal}
+.kaizen-word span{color:var(--muted);font-weight:600}
+.kaizen-def p{font-size:12px;color:rgba(255,255,255,.6);line-height:1.55}
+.kaizen-steps{
+  display:flex;align-items:center;gap:14px;margin-top:16px;
+  padding-top:14px;border-top:1px solid #2a3d6a;
+}
+.kz-bars{display:flex;align-items:flex-end;gap:5px;height:30px}
+.kz-bars span{width:8px;background:var(--red);border-radius:1px;display:block}
+.kz-bars span:nth-child(1){opacity:.3}
+.kz-bars span:nth-child(2){opacity:.45}
+.kz-bars span:nth-child(3){opacity:.6}
+.kz-bars span:nth-child(4){opacity:.8}
+.kz-bars span:nth-child(5){opacity:1}
+.kz-caption{
+  font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+}
+
+/* ── QUIZ ───────────────────────────────────────── */
+.progress-bar{display:flex;gap:5px;margin-bottom:22px}
+.pb-seg{
+  height:4px;flex:1;background:var(--warm);border-radius:2px;
+  transition:background .25s;
+}
+.pb-seg.done{background:var(--red)}
+.pb-seg.now{background:var(--navy)}
+
+.qcard{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:4px;padding:22px 20px;margin-bottom:14px;
+}
+.q-n{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.q-text{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:18px;line-height:1.45}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{
+  border:1.5px solid var(--border);background:#fff;
+  padding:12px 16px;border-radius:3px;cursor:pointer;
+  font-size:13px;color:var(--navy);text-align:left;
+  transition:all .15s;font-family:'Barlow',sans-serif;line-height:1.4;
+}
+.q-opt:hover{border-color:var(--navy);background:var(--cream)}
+.q-opt.sel{border-color:var(--red);background:var(--red-lt);color:var(--red-dk);font-weight:600}
+
+.qnav{display:flex;gap:10px;margin-top:4px}
+.btn-back{
+  padding:13px 18px;background:none;border:1.5px solid var(--border);
+  border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;transition:all .15s;
+}
+.btn-back:hover{border-color:var(--navy);color:var(--navy)}
+.btn-fwd{
+  flex:1;padding:14px;background:var(--navy);border:none;border-radius:3px;
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:2px;text-transform:uppercase;color:#fff;cursor:pointer;
+  transition:background .18s;
+}
+.btn-fwd:hover:not(:disabled){background:var(--navy2)}
+.btn-fwd.red{background:var(--red)}
+.btn-fwd.red:hover:not(:disabled){background:var(--red-dk)}
+.btn-fwd:disabled{opacity:.35;cursor:default}
+.btn-block{
+  display:block;width:100%;padding:14px;background:var(--navy);border:none;
+  border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#fff;
+  cursor:pointer;transition:background .18s;margin-top:4px;
+}
+.btn-block:hover{background:var(--navy2)}
+
+/* result */
+.res-card{border-radius:4px;padding:26px 22px;margin-bottom:16px;text-align:center}
+.res-level{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:52px;
+  text-transform:uppercase;letter-spacing:1px;line-height:1;margin-bottom:4px;
+}
+.res-pts{
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;
+}
+.res-bars{display:flex;gap:4px;margin:14px 0}
+.res-bar-seg{height:8px;flex:1;background:var(--warm);border-radius:2px}
+.res-bar-seg.on{background:var(--red)}
+.res-desc{font-size:13px;line-height:1.65;color:var(--navy);margin-top:10px}
+
+.next-step{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:4px;padding:18px 20px;margin-bottom:14px;
+}
+.next-step .tag{margin-bottom:8px}
+.next-step p{font-size:13px;color:var(--navy);line-height:1.6}
+
+/* ── CALCULATOR ─────────────────────────────────── */
+.calc-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:4px;padding:18px 18px 14px;margin-bottom:14px;
+}
+.calc-lbl{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.calc-val{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;
+  color:var(--navy);
+}
+.calc-slider{
+  width:100%;-webkit-appearance:none;appearance:none;
+  height:4px;background:var(--warm);border-radius:2px;outline:none;
+  margin:4px 0 6px;
+}
+.calc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+  background:var(--red);cursor:pointer;
+  border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.22);
+}
+.calc-slider::-moz-range-thumb{
+  width:22px;height:22px;border-radius:50%;background:var(--red);
+  cursor:pointer;border:2.5px solid #fff;
+}
+.calc-range{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+
+.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.ikpi{
+  background:var(--navy);border-radius:4px;padding:16px 14px;text-align:center;
+}
+.ikpi.full{grid-column:1/-1;background:var(--red)}
+.ikpi.green{background:var(--green)}
+.ikpi.blue{background:var(--blue)}
+.ikpi-val{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;
+  color:#fff;line-height:1;margin-bottom:5px;
+}
+.ikpi-lbl{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);
+  line-height:1.4;
+}
+.insight-box{
+  background:var(--red-lt);border-left:3px solid var(--red);
+  padding:13px 15px;border-radius:0 3px 3px 0;margin-top:14px;
+  font-size:12px;color:var(--red-dk);line-height:1.65;
+}
+
+/* ── SERVICES ───────────────────────────────────── */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.svc-card{
+  background:var(--white);border:1px solid var(--border);border-radius:4px;
+  padding:16px 14px;cursor:pointer;transition:all .18s;
+  position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+  background:var(--warm);transition:background .18s;
+}
+.svc-card:hover::before{background:var(--navy)}
+.svc-card.open::before{background:var(--red)}
+.svc-card.open{border-color:var(--navy);background:var(--cream)}
+.svc-ico{font-size:20px;margin-bottom:7px;display:block}
+.svc-name{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;
+  text-transform:uppercase;letter-spacing:.5px;color:var(--navy);
+  line-height:1.2;margin-bottom:4px;
+}
+.svc-tagline{font-size:11px;color:var(--muted);line-height:1.4}
+.svc-panel{
+  background:var(--navy);border-radius:4px;padding:20px 18px;
+  display:none;margin-bottom:4px;
+}
+.svc-panel.open{display:block}
+.svc-panel-title{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;
+  text-transform:uppercase;color:#fff;letter-spacing:.5px;margin-bottom:14px;
+}
+.svc-panel ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.svc-panel li{
+  font-size:13px;color:rgba(255,255,255,.8);
+  padding-left:16px;position:relative;line-height:1.45;
+}
+.svc-panel li::before{
+  content:'→';position:absolute;left:0;color:var(--red);font-size:11px;top:1px;
+}
+
+/* ── IDEAS ──────────────────────────────────────── */
+.ideas-wrap{position:relative;padding-left:26px}
+.ideas-wrap::before{
+  content:'';position:absolute;left:9px;top:10px;bottom:10px;
+  width:2px;background:var(--warm);border-radius:1px;
+}
+.idea-item{position:relative;margin-bottom:12px}
+.idea-dot{
+  position:absolute;left:-22px;top:16px;width:12px;height:12px;
+  border-radius:50%;background:var(--warm);
+  border:2px solid var(--cream);transition:background .2s;z-index:1;
+}
+.idea-item.open .idea-dot{background:var(--red)}
+.idea-hdr{
+  background:var(--white);border:1px solid var(--border);border-radius:4px;
+  padding:14px 16px;display:flex;align-items:center;gap:11px;cursor:pointer;
+  transition:all .18s;
+}
+.idea-item.open .idea-hdr{
+  border-color:var(--navy);background:var(--navy);
+  border-radius:4px 4px 0 0;
+}
+.idea-n{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;
+  color:var(--warm);min-width:28px;line-height:1;
+}
+.idea-item.open .idea-n{color:var(--red)}
+.idea-meta{flex:1;min-width:0}
+.idea-act-label{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+}
+.idea-item.open .idea-act-label{color:rgba(255,255,255,.35)}
+.idea-title{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;
+  color:var(--navy);text-transform:uppercase;letter-spacing:.3px;line-height:1.2;
+}
+.idea-item.open .idea-title{color:#fff}
+.idea-chev{
+  font-size:11px;color:var(--muted);transition:transform .2s;flex-shrink:0;
+}
+.idea-item.open .idea-chev{transform:rotate(180deg);color:var(--red)}
+.idea-body{
+  display:none;background:#1a2e54;border:1px solid var(--navy);
+  border-top:none;border-radius:0 0 4px 4px;padding:18px 18px 20px;
+}
+.idea-item.open .idea-body{display:block}
+.idea-stat{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:36px;
+  color:var(--red);line-height:1;margin-bottom:2px;
+}
+.idea-stat-lbl{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);
+  margin-bottom:12px;
+}
+.idea-text{font-size:13px;color:rgba(255,255,255,.78);line-height:1.65}
+.idea-q{
+  margin-top:14px;padding:12px 14px;background:rgba(0,0,0,.2);
+  border-left:2px solid var(--red);font-size:12px;color:rgba(255,255,255,.55);
+  font-style:italic;line-height:1.55;
+}
+/* ruta specifics */
+.ruta-sub{font-size:11px;color:var(--muted);font-weight:500;margin-top:2px}
+.idea-item.open .ruta-sub{color:rgba(255,255,255,.45)}
+.ruta-intro{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:14px}
+.ruta-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.ruta-list li{
+  font-size:13px;color:rgba(255,255,255,.72);padding-left:16px;
+  position:relative;line-height:1.45;
+}
+.ruta-list li::before{content:'→';position:absolute;left:0;color:var(--red);font-size:11px;top:1px}
+
+/* hero credibility line */
+.hero-credit{
+  margin-top:22px;font-family:'Barlow Condensed',sans-serif;font-size:10px;
+  font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);line-height:1.5;
+}
+.hero-credit b{color:var(--red);font-weight:800}
+
+/* manifesto band (de herramientas a sistema...) */
+.manifesto{
+  background:var(--navy);border-radius:4px;padding:18px 16px;margin-bottom:20px;
+}
+.manifesto-kicker{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--red);
+  text-align:center;margin-bottom:14px;
+}
+.mf-rows{display:flex;flex-direction:column;gap:11px}
+.mf-item{display:flex;align-items:center;justify-content:center;gap:11px}
+.mf-from{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;
+  text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.4);
+  flex:1;text-align:right;
+}
+.mf-arrow{color:var(--red);font-size:15px;font-weight:700;flex-shrink:0}
+.mf-to{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;
+  text-transform:uppercase;letter-spacing:1px;color:#fff;flex:1;text-align:left;
+}
+
+/* closing block (tagline + cta) */
+.closing{
+  background:var(--navy);border-radius:4px;padding:26px 22px;
+  margin:20px 0 8px;text-align:center;
+}
+.closing-kicker{
+  font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:12px;
+}
+.closing-tagline{
+  font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;
+  line-height:1.2;text-transform:uppercase;color:#fff;letter-spacing:.3px;
+}
+.closing-divider{width:36px;height:3px;background:var(--red);margin:18px auto;border-radius:1px}
+.closing-cta{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6}
+.closing-cta b{color:#fff;font-weight:600}
+
+/* ── FOOTER ─────────────────────────────────────── */
+.footer{
+  padding:14px 22px;border-top:1px solid var(--border);background:var(--cream);
+  font-size:9px;text-transform:uppercase;letter-spacing:2px;
+  color:var(--muted);font-weight:700;text-align:center;margin-top:8px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-brand">KAIZEN<em>™</em> Institute</div>
+  <div class="hdr-badge">Summit Hosp · 2026</div>
+</header>
+
+<!-- VIEWPORT -->
+<div class="viewport" id="vp">
+
+  <!-- ① HOME / HERO -->
+  <section class="screen is-dark active" id="s-home">
+    <div class="hero">
+      <div class="hero-tag">Summit Mexicano de Hospitalidad 2026</div>
+      <div class="hero-h">Por cada queja, <em>26 huéspedes</em> se van en silencio.</div>
+      <p class="hero-body">Y cada uno se lo contará a entre 9 y 15 personas. El problema más caro de tu hotel no está en las reseñas — está en lo que nadie te dijo.</p>
+
+      <div class="kaizen-card">
+        <div class="kaizen-top">
+          <div class="kaizen-kanji">改善</div>
+          <div class="kaizen-def">
+            <div class="kaizen-word">KAIZEN<em>™</em> · <span>cambio para mejor</span></div>
+            <p>La práctica de mejorar un poco, todos los días, en todos los niveles. Pequeños cambios que, sumados, transforman una organización entera.</p>
+          </div>
+        </div>
+        <div class="kaizen-steps">
+          <div class="kz-bars">
+            <span style="height:7px"></span>
+            <span style="height:11px"></span>
+            <span style="height:16px"></span>
+            <span style="height:22px"></span>
+            <span style="height:29px"></span>
+          </div>
+          <div class="kz-caption">Pequeño &middot; constante &middot; extraordinario</div>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <button class="btn-primary" onclick="goTo('diagnostico')">Descubre tu nivel KAIZEN™ →</button>
+        <button class="btn-ghost" onclick="goTo('impacto')">Ver calculadora de impacto financiero</button>
+        <button class="btn-ghost" onclick="goTo('ruta')">La ruta para empezar con KAIZEN™</button>
+      </div>
+
+      <div class="hero-credit">Kaizen Institute · <b>60 años</b> convirtiendo la mejora en resultados de negocio</div>
+    </div>
+  </section>
+
+  <!-- ② DIAGNÓSTICO -->
+  <section class="screen" id="s-diagnostico">
+    <div class="tag">Diagnóstico</div>
+    <div class="h1">¿Qué tan KAIZEN™<br>es tu hotel?</div>
+    <p class="sub">5 preguntas · 2 minutos · Una perspectiva nueva.</p>
+    <div class="rule"></div>
+    <div class="progress-bar" id="pbars">
+      <div class="pb-seg now" id="pb0"></div>
+      <div class="pb-seg" id="pb1"></div>
+      <div class="pb-seg" id="pb2"></div>
+      <div class="pb-seg" id="pb3"></div>
+      <div class="pb-seg" id="pb4"></div>
+    </div>
+    <div id="quiz-body"></div>
+  </section>
+
+  <!-- ③ IMPACTO FINANCIERO -->
+  <section class="screen" id="s-impacto">
+    <div class="tag">Calculadora</div>
+    <div class="h1">El costo invisible<br>de la ineficiencia</div>
+    <p class="sub">Hay costos que no se sienten en el día a día — se sienten cuando el huésped no vuelve. Ajusta los datos de tu hotel y míralos.</p>
+    <div class="rule"></div>
+
+    <div class="calc-card">
+      <div class="calc-lbl">
+        <span>Empleados de primera línea</span>
+        <span class="calc-val" id="cv-emp">80</span>
+      </div>
+      <input type="range" class="calc-slider" id="sl-emp" min="15" max="450" value="80" oninput="calcUpdate()">
+      <div class="calc-range"><span>15</span><span>450</span></div>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-lbl">
+        <span>Rotación anual actual</span>
+        <span class="calc-val" id="cv-rot">65%</span>
+      </div>
+      <input type="range" class="calc-slider" id="sl-rot" min="10" max="100" value="65" oninput="calcUpdate()">
+      <div class="calc-range"><span>10 %</span><span>100 %</span></div>
+    </div>
+
+    <div class="calc-card">
+      <div class="calc-lbl">
+        <span>Salario mensual promedio (MXN)</span>
+        <span class="calc-val" id="cv-sal">$10,000</span>
+      </div>
+      <input type="range" class="calc-slider" id="sl-sal" min="7000" max="28000" step="500" value="10000" oninput="calcUpdate()">
+      <div class="calc-range"><span>$7,000</span><span>$28,000</span></div>
+    </div>
+
+    <div class="impact-grid" id="impact-grid"></div>
+    <div class="insight-box" id="insight-box"></div>
+  </section>
+
+  <!-- ④ SOLUCIONES KIMX -->
+  <section class="screen" id="s-servicios">
+    <div class="tag">El Programa Completo</div>
+    <div class="h1">Soluciones a la<br>medida de tu hotel</div>
+    <p class="sub">No trabajamos por piezas sueltas. Diseñamos un programa de consultoría integral según lo que tu hotel necesita. Estos son sus componentes — toca cada uno.</p>
+    <div class="rule"></div>
+
+    <div class="manifesto">
+      <div class="manifesto-kicker">Así creamos valor</div>
+      <div class="mf-rows">
+        <div class="mf-item"><span class="mf-from">Herramientas</span><span class="mf-arrow">→</span><span class="mf-to">Sistema</span></div>
+        <div class="mf-item"><span class="mf-from">Actividad</span><span class="mf-arrow">→</span><span class="mf-to">Valor</span></div>
+        <div class="mf-item"><span class="mf-from">Esfuerzo</span><span class="mf-arrow">→</span><span class="mf-to">Resultados</span></div>
+      </div>
+    </div>
+
+    <div class="svc-grid" id="svc-grid"></div>
+    <div id="svc-panel"></div>
+  </section>
+
+  <!-- ⑤ RUTA KAIZEN -->
+  <section class="screen" id="s-ruta">
+    <div class="tag">Cómo Empezamos Contigo</div>
+    <div class="h1">La Ruta<br>KAIZEN™</div>
+    <p class="sub">De la sala de juntas al piso de operaciones. Así trabajamos contigo, paso a paso.</p>
+    <div class="rule"></div>
+    <div class="ideas-wrap" id="ruta-wrap"></div>
+
+    <div class="closing">
+      <div class="closing-kicker">Kaizen Institute México</div>
+      <div class="closing-tagline">Creamos valor de largo plazo. Cambiamos la manera en que el crecimiento se gestiona y se logra.</div>
+      <div class="closing-divider"></div>
+      <p class="closing-cta">Esto es solo la puerta. <b>El diagnóstico de tu hotel toma una visita</b> — y ahí es donde empieza todo. Acércate al equipo y agendémosla.</p>
+    </div>
+
+    <div class="footer">Kaizen Institute México &middot; All Rights Reserved &middot; Confidencial</div>
+  </section>
+
+</div><!-- /viewport -->
+
+<!-- BOTTOM NAV -->
+<nav class="bnav">
+  <button class="bnav-btn active" id="nb-home" onclick="goTo('home')">
+    <span class="bnav-ico">⬡</span>
+    <span class="bnav-lbl">Inicio</span>
+  </button>
+  <button class="bnav-btn" id="nb-diagnostico" onclick="goTo('diagnostico')">
+    <span class="bnav-ico">◎</span>
+    <span class="bnav-lbl">Diagnóstico</span>
+  </button>
+  <button class="bnav-btn" id="nb-impacto" onclick="goTo('impacto')">
+    <span class="bnav-ico">◇</span>
+    <span class="bnav-lbl">Impacto $</span>
+  </button>
+  <button class="bnav-btn" id="nb-servicios" onclick="goTo('servicios')">
+    <span class="bnav-ico">◈</span>
+    <span class="bnav-lbl">Soluciones</span>
+  </button>
+  <button class="bnav-btn" id="nb-ruta" onclick="goTo('ruta')">
+    <span class="bnav-ico">⚑</span>
+    <span class="bnav-lbl">Ruta</span>
+  </button>
+</nav>
+
+<script>
+// ══════════════════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════════════════
+function goTo(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.bnav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s-'+id).classList.add('active');
+  const nb=document.getElementById('nb-'+id);
+  if(nb) nb.classList.add('active');
+  document.getElementById('vp').scrollTo(0,0);
+}
+
+// ══════════════════════════════════════════════════
+//  QUIZ DATA
+// ══════════════════════════════════════════════════
+const Qs=[
+  {
+    q:'Imagina que entras a tu hotel un martes cualquiera a las 7am. De las caras que ves trabajando, ¿cuántas siguen ahí desde hace más de dos años?',
+    opts:[
+      {t:'El equipo cambia con frecuencia; veo bastantes caras nuevas',s:0},
+      {t:'Hay movimiento, sobre todo en algunos puestos',s:1},
+      {t:'Tenemos un núcleo estable, con algo de rotación alrededor',s:2},
+      {t:'La mayoría lleva tiempo; el equipo es bastante estable',s:3}
+    ]
+  },
+  {
+    q:'Imagina que un huésped hace checkout en silencio: sin una queja, pero sin una sonrisa, y se va. ¿Qué tan probable es que alguien de tu equipo lo note?',
+    opts:[
+      {t:'Probablemente nadie lo registre en el momento',s:0},
+      {t:'Tal vez alguien lo note, aunque no siempre reacciona',s:1},
+      {t:'Suele haber alguien atento que lo percibe',s:2},
+      {t:'Leer esas señales es parte natural del trabajo aquí',s:3}
+    ]
+  },
+  {
+    q:'Imagina el primer día de un colaborador nuevo. ¿Qué es lo primero que aprende sobre "cómo se hacen las cosas aquí"?',
+    opts:[
+      {t:'Las normas y lo que no se debe hacer',s:0},
+      {t:'El manual de procedimientos de su puesto',s:1},
+      {t:'Por qué hacemos las cosas como las hacemos',s:2},
+      {t:'Que los procesos existen para que se concentre en la gente',s:3}
+    ]
+  },
+  {
+    q:'Imagina que detienes a alguien de housekeeping en el pasillo y le preguntas hacia dónde va el hotel este año. ¿Qué crees que te respondería?',
+    opts:[
+      {t:'Probablemente no sabría bien qué responder',s:0},
+      {t:'Algo general, en sus propias palabras',s:1},
+      {t:'Conoce las metas del hotel',s:2},
+      {t:'Sabe el rumbo y cómo su trabajo aporta a él',s:3}
+    ]
+  },
+  {
+    q:'Imagina que tienes presupuesto para una sola gran inversión este año. Por instinto, ¿hacia dónde se inclina la decisión?',
+    opts:[
+      {t:'Tecnología de punta: la operación tiene que modernizarse',s:0},
+      {t:'Tecnología, pero sólo si el equipo está listo para usarla',s:1},
+      {t:'El desarrollo del equipo: la gente antes que las herramientas',s:2},
+      {t:'La forma de trabajar, que es lo que sostiene todo lo demás',s:3}
+    ]
+  }
+];
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+Qs.forEach(q=>{q.order=shuffle([0,1,2,3]);});
+
+let curQ=0, answers=Array(5).fill(null);
+
+function renderQuiz(){
+  // dots
+  for(let i=0;i<5;i++){
+    const d=document.getElementById('pb'+i);
+    d.classList.remove('done','now');
+    if(i<curQ) d.classList.add('done');
+    if(i===curQ) d.classList.add('now');
+  }
+  const q=Qs[curQ];
+  const selIdx=answers[curQ];
+  document.getElementById('quiz-body').innerHTML=`
+    <div class="qcard">
+      <div class="q-n">Pregunta ${curQ+1} de 5</div>
+      <div class="q-text">${q.q}</div>
+      <div class="q-opts">
+        ${q.order.map(oi=>`
+          <button class="q-opt${selIdx===oi?' sel':''}" onclick="pickOpt(${oi})">${q.opts[oi].t}</button>
+        `).join('')}
+      </div>
+    </div>
+    <div class="qnav">
+      ${curQ>0?`<button class="btn-back" onclick="prevQ()">← Atrás</button>`:''}
+      <button class="btn-fwd${curQ===4?' red':''}"
+        ${selIdx===null?'disabled':''}
+        onclick="${curQ<4?'nextQ()':'showResult()'}">
+        ${curQ<4?'Siguiente →':'Ver mi resultado'}
+      </button>
+    </div>
+  `;
+}
+
+function pickOpt(i){
+  answers[curQ]=i;
+  renderQuiz();
+}
+function nextQ(){if(answers[curQ]!==null){curQ++;renderQuiz()}}
+function prevQ(){curQ--;renderQuiz()}
+
+function showResult(){
+  const score=answers.reduce((s,a,qi)=>s+(a!==null?Qs[qi].opts[a].s:0),0);
+  const max=15; const pct=score/max;
+  let level,col,bg,desc,nxt,rstep,rname;
+  if(pct<0.35){
+    level='Visitante';col='var(--red)';bg='var(--red-lt)';
+    desc='Tu hotel tiene mucho potencial sin explotar. Las bases de la cultura de mejora continua aún no están en su lugar — lo que significa que la oportunidad de diferenciación es enorme.';
+    nxt='Lo más sano es empezar por arriba: alinear al equipo directivo en un norte común antes de tocar la operación. Ahí es donde todo cambio sostenible empieza.';
+    rstep=0;rname='C-Level KAIZEN™';
+  }else if(pct<0.6){
+    level='Explorador';col='var(--amber)';bg='var(--amber-lt)';
+    desc='Has dado pasos importantes, pero la mejora continua todavía no es el metabolismo de tu organización. Hay iniciativas valiosas que no están conectadas a un sistema completo.';
+    nxt='El punto de partida es un C-Level KAIZEN™: darle a tus iniciativas un norte común desde el liderazgo, para que dejen de ser esfuerzos sueltos y se vuelvan un sistema.';
+    rstep=0;rname='C-Level KAIZEN™';
+  }else if(pct<0.85){
+    level='Practicante';col='var(--blue)';bg='var(--blue-lt)';
+    desc='Tienes bases sólidas. El equipo directivo entiende la dirección, pero la cultura de mejora aún no vive con la misma intensidad en todos los niveles.';
+    nxt='Estás listo para un KAIZEN™ Piloto en operaciones: una primera área que genere resultados visibles, construya creencia en el piso y se vuelva la prueba de que el cambio es posible.';
+    rstep=2;rname='KAIZEN™ Piloto en Operaciones';
+  }else{
+    level='Maestro';col='var(--green)';bg='var(--green-lt)';
+    desc='Tu hotel está en el segmento más pequeño de la industria: organizaciones donde la mejora continua ya es una forma de respirar. El reto ahora es sostenerlo y usarlo para crecer.';
+    nxt='Tu siguiente frontera es Vivir KAIZEN™: sostener los rituales, certificar lo que ya tienes y escalar el modelo a toda la propiedad o cadena.';
+    rstep=4;rname='Vivir KAIZEN™';
+  }
+  const filled=Math.round(pct*10);
+  const bars=Array.from({length:10},(_,i)=>`<div class="res-bar-seg${i<filled?' on':''}"></div>`).join('');
+  for(let i=0;i<5;i++){
+    const d=document.getElementById('pb'+i);
+    d.classList.remove('now');
+    d.classList.add('done');
+  }
+  document.getElementById('quiz-body').innerHTML=`
+    <div class="res-card" style="background:${bg};border:1px solid ${col}30">
+      <div class="tag" style="color:${col}">Tu resultado</div>
+      <div class="res-level" style="color:${col}">${level}</div>
+      <div class="res-pts">${score} / ${max} puntos</div>
+      <div class="res-bars">${bars}</div>
+      <div class="res-desc">${desc}</div>
+    </div>
+    <div class="next-step">
+      <div class="tag">Por dónde empezar contigo</div>
+      <p>${nxt}</p>
+      <button class="btn-block" style="background:${col};margin-top:14px" onclick="goToRutaStep(${rstep})">Ver la ruta desde "${rname}" →</button>
+    </div>
+    <button class="btn-block" style="background:none;border:1.5px solid var(--border);color:var(--muted)" onclick="resetQuiz()">Hacer el diagnóstico de nuevo</button>
+  `;
+}
+
+function resetQuiz(){curQ=0;answers=Array(5).fill(null);Qs.forEach(q=>{q.order=shuffle([0,1,2,3]);});renderQuiz()}
+renderQuiz();
+
+// ══════════════════════════════════════════════════
+//  CALCULATOR
+// ══════════════════════════════════════════════════
+function fmt(n){
+  if(n>=1000000) return '$'+(n/1000000).toFixed(1)+'M';
+  if(n>=1000) return '$'+Math.round(n/1000)+'K';
+  return '$'+n.toLocaleString();
+}
+
+function calcUpdate(){
+  const emp=+document.getElementById('sl-emp').value;
+  const rot=+document.getElementById('sl-rot').value;
+  const sal=+document.getElementById('sl-sal').value;
+  document.getElementById('cv-emp').textContent=emp;
+  document.getElementById('cv-rot').textContent=rot+'%';
+  document.getElementById('cv-sal').textContent='$'+sal.toLocaleString();
+
+  const reemplazos=Math.round(emp*rot/100);
+  const costoXPers=sal*12*0.90; // 90% salario anual como costo real de reemplazo
+  const costoTotal=Math.round(reemplazos*costoXPers);
+  const ahorro=Math.round(emp*0.20*costoXPers);
+  const revparImpact=Math.round(emp*180*0.12); // simplificado: impacto en ADR * ocupación
+
+  document.getElementById('impact-grid').innerHTML=`
+    <div class="ikpi full">
+      <div class="ikpi-val">${fmt(costoTotal)}</div>
+      <div class="ikpi-lbl">Costo anual de rotación<br>(no aparece en tu P&amp;L)</div>
+    </div>
+    <div class="ikpi">
+      <div class="ikpi-val">${reemplazos}</div>
+      <div class="ikpi-lbl">Personas que<br>reemplazas al año</div>
+    </div>
+    <div class="ikpi">
+      <div class="ikpi-val">${fmt(costoXPers)}</div>
+      <div class="ikpi-lbl">Costo promedio<br>por reemplazo</div>
+    </div>
+    <div class="ikpi green">
+      <div class="ikpi-val">${fmt(ahorro)}</div>
+      <div class="ikpi-lbl">Ahorro si bajas<br>rotación 20 pp</div>
+    </div>
+    <div class="ikpi blue">
+      <div class="ikpi-val">${fmt(revparImpact)}</div>
+      <div class="ikpi-lbl">Impacto potencial<br>RevPAR / año</div>
+    </div>
+  `;
+  document.getElementById('insight-box').innerHTML=`
+    <strong>Un hotel con ${rot}% de rotación</strong> reemplaza a ${reemplazos} personas cada año.
+    Cada reemplazo genera semanas de curva de aprendizaje que el huésped percibe —
+    sin que aparezca en ningún reporte. <strong>El costo invisible es real.</strong>
+  `;
+}
+calcUpdate();
+
+// ══════════════════════════════════════════════════
+//  SERVICES
+// ══════════════════════════════════════════════════
+const svcs=[
+  {ico:'🏨',name:'Excelencia en Servicio',tag:'Del protocolo a la conexión humana',items:[
+    'Diagnóstico de cultura de servicio y estándares actuales',
+    'Diseño del Confidence/Competence Loop para tu equipo',
+    'Implementación del Lineup Diario y rituales de excelencia',
+    'Sistemas de retroalimentación y Voz del Cliente en tiempo real',
+    'Entrenamiento en hospitalidad irrazonable y anticipación activa'
+  ]},
+  {ico:'🔄',name:'Lean & Flujo de Valor',tag:'Elimina lo que no crea valor para el huésped',items:[
+    'Mapeo del flujo de valor (VSM) de la experiencia del huésped',
+    'Eliminación de desperdicios en housekeeping, F&B y front desk',
+    'Reducción de tiempos de ciclo en procesos críticos',
+    'Diseño de layout y flujo de back-of-house',
+    '5S aplicado a todas las áreas de operación'
+  ]},
+  {ico:'👥',name:'Cultura & Liderazgo',tag:'Construye el metabolismo que mejora todos los días',items:[
+    'Diagnóstico de cultura organizacional y gap de liderazgo',
+    'Desarrollo de líderes KAIZEN™ en todos los niveles',
+    'Sistema de involucramiento y empoderamiento del personal',
+    'Estrategia de retención y reducción de rotación',
+    'Construcción del Massive Transformative Purpose (MTP)'
+  ]},
+  {ico:'🧭',name:'KAIZEN™ Estratégico',tag:'La estrategia que vive en el hábito diario',items:[
+    'Despliegue de política (Hoshin Kanri) para operación hotelera',
+    'Conexión entre estrategia directiva y piso de operaciones',
+    'Sistemas de métricas que miden lo que el RevPAR no mide',
+    'KAIZEN™ de liderazgo — no solo de operadores',
+    'Diseño del sistema completo de mejora continua'
+  ]},
+  {ico:'📊',name:'Datos & Diagnóstico',tag:'Mide lo que el P&L no te está contando',items:[
+    'Cálculo real del costo de rotación en tu propiedad',
+    'Análisis de desperdicios y pérdidas no visibles',
+    'Benchmarking de eficiencia operativa vs. industria',
+    'Dashboard de KPIs operativos y de experiencia',
+    'Identificación de los puntos ciegos de la calidad'
+  ]},
+  {ico:'🎓',name:'Formación & Certificación',tag:'Desarrolla maestros, no solo empleados',items:[
+    'Certificación KAIZEN™ para equipos hoteleros',
+    'Formación de agentes de cambio internos (KAIZEN™ Leaders)',
+    'Programa de aprendizaje continuo para todos los niveles',
+    'Talleres de mejora rápida (Kaizen Events) en áreas clave',
+    'Acompañamiento durante todo el proceso de transformación'
+  ]}
+];
+
+let openSvc=null;
+
+function buildServices(){
+  document.getElementById('svc-grid').innerHTML=svcs.map((s,i)=>`
+    <div class="svc-card${openSvc===i?' open':''}" id="sc${i}" onclick="toggleSvc(${i})">
+      <span class="svc-ico">${s.ico}</span>
+      <div class="svc-name">${s.name}</div>
+      <div class="svc-tagline">${s.tag}</div>
+    </div>
+  `).join('');
+  if(openSvc!==null){
+    const s=svcs[openSvc];
+    document.getElementById('svc-panel').innerHTML=`
+      <div class="svc-panel open">
+        <div class="svc-panel-title">${s.ico} ${s.name}</div>
+        <ul>${s.items.map(it=>`<li>${it}</li>`).join('')}</ul>
+      </div>
+    `;
+  } else {
+    document.getElementById('svc-panel').innerHTML='';
+  }
+}
+
+function toggleSvc(i){
+  openSvc=(openSvc===i)?null:i;
+  buildServices();
+  if(openSvc!==null){
+    setTimeout(()=>{
+      const panel=document.querySelector('#svc-panel .svc-panel');
+      if(panel) panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+    },50);
+  }
+}
+buildServices();
+
+// ══════════════════════════════════════════════════
+//  RUTA KAIZEN
+// ══════════════════════════════════════════════════
+const ruta=[
+  {
+    phase:'Paso 1 · Por dónde empezamos',
+    name:'C-Level KAIZEN™',
+    sub:'Top Management Workshop',
+    intro:'Todo cambio sostenible empieza arriba. Antes de tocar la operación, alineamos al equipo directivo en un mismo norte y rompemos los paradigmas que frenan la transformación.',
+    items:[
+      'Alinear al liderazgo en un norte común (Hoshin)',
+      'Romper paradigmas con las 7 Paradojas de la cultura KAIZEN™',
+      'Construir el caso de cambio con datos del propio hotel',
+      'Definir qué significa "excelencia" para esta propiedad',
+      'Asegurar el compromiso visible del liderazgo'
+    ]
+  },
+  {
+    phase:'Paso 2 · Ver la operación real',
+    name:'Diagnóstico de Flujo de Valor',
+    sub:'Gemba & Value Stream',
+    intro:'Bajamos al terreno. Caminamos la operación como nadie la ha visto y medimos el punto de partida — incluido el costo invisible que no aparece en el P&L.',
+    items:[
+      'Gemba Walk: caminar la operación real, no los reportes',
+      'Mapeo del flujo de valor de la experiencia del huésped',
+      'Identificar el costo invisible: rotación, desperdicios, fugas',
+      'Detectar dónde se pierde el valor antes de llegar al huésped',
+      'Establecer una línea base medible para evaluar el avance'
+    ]
+  },
+  {
+    phase:'Paso 3 · Resultados visibles, rápido',
+    name:'KAIZEN™ Piloto en Operaciones',
+    sub:'Quick Wins que construyen creencia',
+    intro:'Elegimos un área de alto impacto y la convertimos en la prueba viviente de que el cambio es posible. El equipo de piso propone y ejecuta — la mejora se vuelve suya.',
+    items:[
+      'Elegir un área de alto impacto: housekeeping, F&B o front desk',
+      'Kaizen Event con el equipo de piso: ellos proponen, ellos ejecutan',
+      'Resultados medibles en semanas, no en años',
+      'El piloto se vuelve la prueba de que el cambio es real',
+      'Involucramiento bottom-up: propiedad y responsabilidad del equipo'
+    ]
+  },
+  {
+    phase:'Paso 4 · De un área a todo el hotel',
+    name:'Escalamiento (Roll-out)',
+    sub:'Lo que funciona, se replica',
+    intro:'El piloto demostró que el cambio es posible. Ahora lo llevamos del área inicial a toda la operación —departamento por departamento— con un método y un ritmo que mantienen los resultados.',
+    items:[
+      'Convertir el piloto en un modelo replicable (playbook)',
+      'Desplegar la mejora área por área: housekeeping, F&B, recepción, mantenimiento',
+      'Adaptar el método a la realidad de cada departamento',
+      'Establecer una cadencia de seguimiento que sostiene el avance',
+      'Generar momentum: cada área que mejora impulsa a la siguiente'
+    ]
+  },
+  {
+    phase:'Paso 5 · El metabolismo de la mejora',
+    name:'Vivir KAIZEN™',
+    sub:'Que respiren la mejora continua',
+    intro:'La mejora deja de ser un proyecto con fecha de cierre y se vuelve la forma en que la organización respira. Aquí, por fin, la tecnología amplifica una cultura sólida.',
+    items:[
+      'Instalar rituales de excelencia: Lineup Diario, historias WOW',
+      'Convertir la estrategia en hábito cotidiano',
+      'Sistema de mejora que se sostiene sin consultores',
+      'Escalar el modelo a toda la propiedad o cadena',
+      'Ahora sí: la tecnología amplifica una cultura de maestros'
+    ]
+  }
+];
+
+let openRuta=null;
+
+function buildRuta(){
+  document.getElementById('ruta-wrap').innerHTML=ruta.map((d,i)=>`
+    <div class="idea-item${openRuta===i?' open':''}" id="rs${i}">
+      <div class="idea-dot"></div>
+      <div class="idea-hdr" onclick="toggleRuta(${i})">
+        <div class="idea-n">${String(i+1).padStart(2,'0')}</div>
+        <div class="idea-meta">
+          <div class="idea-act-label">${d.phase}</div>
+          <div class="idea-title">${d.name}</div>
+          <div class="ruta-sub">${d.sub}</div>
+        </div>
+        <div class="idea-chev">▼</div>
+      </div>
+      <div class="idea-body">
+        <p class="ruta-intro">${d.intro}</p>
+        <ul class="ruta-list">${d.items.map(it=>`<li>${it}</li>`).join('')}</ul>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleRuta(i){
+  openRuta=(openRuta===i)?null:i;
+  buildRuta();
+  if(openRuta!==null){
+    setTimeout(()=>{
+      const el=document.getElementById('rs'+i);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'nearest'});
+    },50);
+  }
+}
+
+function goToRutaStep(i){
+  goTo('ruta');
+  openRuta=i;
+  buildRuta();
+  setTimeout(()=>{
+    const el=document.getElementById('rs'+i);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+  },140);
+}
+buildRuta();
+</script>
+</body>
+</html>
